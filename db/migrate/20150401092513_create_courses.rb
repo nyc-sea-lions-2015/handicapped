@@ -2,8 +2,8 @@ class CreateCourses < ActiveRecord::Migration
   def change
     create_table :courses do |t|
       t.string    :name, null: false
-      t.integer   :course, null: false
-      t.integer   :slope, null: false
+      t.float   :course, null: false
+      t.float   :slope, null: false
 
       t.timestamps null:false
     end

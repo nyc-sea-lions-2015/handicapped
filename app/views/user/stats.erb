@@ -1,9 +1,13 @@
 <div class="course_details">
   <%= course.name %><br>
   <table>
+<div class="handicap">
+  Handicap: <%= handicap %>
+</div>
   <% scores.each do |score| %>
     <tr>
       <td><%= score.strokes %></td>
+      <td><a href='/score/<%= score.id %>/delete'>Delete</a></td>
     </tr>
     <% end %>
   </table>

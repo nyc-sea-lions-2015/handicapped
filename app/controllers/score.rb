@@ -20,3 +20,10 @@ get '/score/:id/delete' do
   curr_score = Score.find_by(id: params[:id])
   erb :'score/delete', locals:{score: curr_score}
 end
+
+delete '/score/:id/delete' do
+  score = Score.find_by(id: params[:id])
+  course = score.course
+  Score.find_by(id: params[:id]).destroy
+  redirect '/'
+end

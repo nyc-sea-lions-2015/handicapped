@@ -18,9 +18,7 @@
   <title></title>
 </head>
 <body>
-    <% if current_user %>
-      Welcome, <%=current_user.username %>!
-    <% end %>
+    StrokeMaster
     <a href='/'>Home</a> ||
     <% if current_user %>
       <a href='/user/<%= current_user.id %>/edit'>Edit</a>
