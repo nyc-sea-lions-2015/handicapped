@@ -11,6 +11,7 @@ $(document).ready(function() {
                 $('.score_form').trigger('reset');
                 $('.all_scores').append(box);
               });
+
   });
 
     $('.score_delete').on('submit', function(event){
