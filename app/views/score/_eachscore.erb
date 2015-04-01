@@ -1,7 +1,14 @@
 <tr>
-<%= score.strokes %>
-<form class='score_delete' action="/score/<%= score.id %>" method='post'>
-  <input type='hidden' name='_method' value = 'delete'>
-  <input type='submit' value="delete">
-</form>
+  <td>
+    <%= score.created_at.strftime("%D") %>
+  </td>
+  <td>
+    <%= score.strokes %>
+  </td>
+  <td>
+  <form class='score_delete' action="/score/<%= score.id %>" method='post'>
+    <input type='hidden' name='_method' value = 'delete'>
+    <input type='submit' value="delete">
+  </form>
+  </td>
 </tr>

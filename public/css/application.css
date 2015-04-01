@@ -27,3 +27,11 @@ body {
 #welcome {
   text-align: center;
 }
+
+table {
+  width: 400px;
+}
+
+td {
+  width: 50%;
+}
