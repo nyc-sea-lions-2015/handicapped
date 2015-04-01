@@ -7,7 +7,7 @@ put '/auth/login' do
 
   if user.try(:authenticate, params[:password])
     session[:user_id] = user.id
-    redirect '/'
+    redirect "/user/#{user.id}"
   else
     session[:message] = "Incorrect username and/or password!"
     redirect '/auth/login'
@@ -28,7 +28,7 @@ post '/auth/signup' do
                     password: params[:password])
   if user.save
     session[:user_id] = user.id
-    redirect '/'
+    redirect "/user/#{user.id}"
   else
     [500, "Uh oh! You dun goofed!"]
   end
