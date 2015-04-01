@@ -1,6 +1,6 @@
 get '/course/:id/add' do
   course = Course.find_by(id: params[:id])
-  erb :'score/add', locals:{course: course}
+  erb :'score/_add', locals:{course: course}
 end
 
 post '/course/:id/add' do
@@ -9,21 +9,17 @@ post '/course/:id/add' do
   new_score = Score.new(  strokes: params[:strokes],
                           course: course,
                           user: user)
-  if new_score.save!
-    redirect "/user/#{user.id}/course/#{course.id}"
+  new_score.save!
+
+  if request.xhr?
+    erb :'score/_eachscore', locals:{score: new_score}, layout: false
   else
     [500, "Made an error!"]
   end
 end
 
-get '/score/:id/delete' do
-  curr_score = Score.find_by(id: params[:id])
-  erb :'score/delete', locals:{score: curr_score}
-end
-
-delete '/score/:id/delete' do
+delete '/score/:id' do
   score = Score.find_by(id: params[:id])
-  course = score.course
   Score.find_by(id: params[:id]).destroy
   redirect '/'
 end

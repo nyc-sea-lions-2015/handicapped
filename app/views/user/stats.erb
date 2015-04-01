@@ -1,15 +1,14 @@
 <div class="course_details">
   <%= course.name %><br>
-  <table>
-<div class="handicap">
-  Handicap: <%= handicap %>
-</div>
-  <% scores.each do |score| %>
-    <tr>
-      <td><%= score.strokes %></td>
-      <td><a href='/score/<%= score.id %>/delete'>Delete</a></td>
-    </tr>
-    <% end %>
-  </table>
-  <a href='/course/<%=course.id%>/add'>Add score</a>
+  <div class="handicap">
+    Handicap:
+  </div>
+    <div class="all_scores">
+      <% scores.each do |score| %>
+        <div class="score">
+          <%= erb :'score/_eachscore', locals:{score: score} %>
+        </div>
+      <% end %>
+    </div>
+  <%= erb :'score/_add', locals:{course: course} %>
 </div>
