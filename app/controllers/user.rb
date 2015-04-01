@@ -1,6 +1,6 @@
 get '/user/:id' do
   user = User.find_by(id: params[:id])
-  course_id = user.scores.pluck(:course_id)
+  course_id = user.scores.pluck(:course_id).uniq
   course = []
   course_id.each do |id|
     course << Course.find(id)
