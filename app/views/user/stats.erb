@@ -1,7 +1,7 @@
 <div class="course_details">
-  <%= course.name %><br>
+  <h1><%= course.name %></h1>
   <div class="handicap">
-    Handicap:
+    Handicap: <%= handicap %>
   </div>
     <div class="all_scores">
       <% scores.each do |score| %>
@@ -10,5 +10,6 @@
         </div>
       <% end %>
     </div>
+    <br>
   <%= erb :'score/_add', locals:{course: course} %>
 </div>

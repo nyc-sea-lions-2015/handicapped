@@ -1,0 +1,29 @@
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.navbar {
+  font-family: 'Oswald', sans-serif;
+  color: white;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 30px;
+  background-color: #187F7E;
+}
+
+.links a {
+  font-family: 'Roboto Condensed', sans-serif;
+  float: right;
+  margin-top: -17px;
+  right: 0;
+  text-decoration: none;
+  color: white;
+  text-align: right;
+  margin-right: 20px;
+}
+
+#welcome {
+  text-align: center;
+}

@@ -4,9 +4,9 @@ class Course < ActiveRecord::Base
   def calculate(scores)
     total = []
     scores.each do |score|
-      total <<((score.to_f-course.to_f*113/slope.to_f))
+      total <<((score-course*113/slope))
     end
-    final = total.inject(:+)*(0.96)
+    final = (total.inject(:+)/total.length)*(0.96)
     return (final*slope/113).round(2)
   end
 

@@ -11,23 +11,27 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/css/application.css">
-
+  <link href='http://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed' rel='stylesheet' type='text/css'>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
   <title></title>
 </head>
 <body>
-    StrokeMaster
-    <a href='/'>Home</a> ||
-    <% if current_user %>
-      <a href='/user/<%= current_user.id %>/edit'>Edit</a>
-      <a href="/auth/logout">Logout</a>
-    <% else %>
-      <a href="/auth/login">Login</a>
-    <% end %>
+  <div class="navbar">
+    StrokeMaster || Track your strokes today!
+    <div class="links">
+      <% if current_user %>
+        <a href="/auth/logout">LOGOUT</a>
+        <a href='/user/<%= current_user.id %>/edit'>EDIT</a>
+      <% else %>
+        <a href="/auth/login">LOGIN</a>
+      <% end %>
+      <a href='/'>HOME</a>
+    </div>
     <BR>
-    Track your strokes today!
+  </div>
+
   <%= yield %>
 </body>
 </html>
