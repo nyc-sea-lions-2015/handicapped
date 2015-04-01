@@ -46,7 +46,7 @@ $(document).ready(function() {
               method: 'GET',
               dataType: 'HTML'
     }).done(function(data){
-
+      $('#choice').replaceWith(data);
 
     });
   });

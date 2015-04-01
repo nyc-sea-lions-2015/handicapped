@@ -1,5 +1,5 @@
 get '/auth/login' do
-  erb :'auth/login'
+  erb :'auth/login', layout: false
 end
 
 put '/auth/login' do
@@ -20,7 +20,7 @@ get '/auth/logout' do
 end
 
 get '/auth/signup' do
-  erb :'auth/signup'
+  erb :'auth/signup', layout: false
 end
 
 post '/auth/signup' do
