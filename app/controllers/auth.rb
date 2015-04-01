@@ -30,6 +30,6 @@ post '/auth/signup' do
     session[:user_id] = user.id
     redirect '/'
   else
-    [500, "Uh oh! Made a mistake!"]
+    [500, "Uh oh! You dun goofed!"]
   end
 end
