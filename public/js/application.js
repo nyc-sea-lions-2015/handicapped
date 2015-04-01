@@ -9,7 +9,6 @@ $(document).ready(function() {
               method: $target.attr('method'),
               data: $target.serialize(),
               }).done(function(box){
-                console.log("here?");
                 $('.score_form').trigger('reset');
                 $('.all_scores').append(box);
               });
@@ -37,6 +36,19 @@ $(document).ready(function() {
               }).done(function(response){
                 $target.closest('.score').remove();
               });
+  });
+
+    $('#choice').on('click', function(event){
+    event.preventDefault();
+    var $target = $(event.target);
+    console.log($target.attr('href'));
+    $.ajax({  url: $target.attr('href'),
+              method: 'GET',
+              dataType: 'HTML'
+    }).done(function(data){
+
+
+    });
   });
 
 });
