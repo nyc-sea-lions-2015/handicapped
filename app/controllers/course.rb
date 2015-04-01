@@ -5,6 +5,20 @@ get '/user/:id/course/:course' do
   erb :'course/stats', locals:{user: user, course: course, scores: scores}
 end
 
+get '/course/find' do
+  erb :'course/find'
+end
+
+post '/course/find' do
+  query = params[:query]
+  course = Course.find_by(name: query)
+  if course.nil?
+    redirect '/course/new'
+  else
+    redirect "/course/#{course.id}"
+  end
+end
+
 get '/course/new' do
   erb :'course/new'
 end
@@ -14,13 +28,13 @@ post '/course/new' do
                         course: params[:course],
                         slope: params[:slope])
   if course.save!
-    redirect "/course/#{course.id}/details"
+    redirect "/course/#{course.id}"
   else
     [500, "something went wrong in the creation!"]
   end
 end
 
-get '/course/:id/details' do
+get '/course/:id' do
   course = Course.find_by(id: params[:id])
   erb :'course/details', locals:{course: course}
 end
