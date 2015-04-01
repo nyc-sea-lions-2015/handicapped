@@ -1,6 +1,4 @@
 get '/' do
-  if current_user != nil
-    redirect "/user/#{current_user.id}"
-  end
+  redirect "/user/#{current_user.id}" if current_user != nil
   erb :index
 end

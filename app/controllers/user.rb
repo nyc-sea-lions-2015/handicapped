@@ -31,6 +31,6 @@ get '/user/:id/course/:course' do
   user = User.find_by(id: params[:id])
   course = Course.find_by(id: params[:course])
   scores = user.scores.where(course_id: course.id)
-  handicap = ( scores.nil? ? "NA" : course.calculate(scores.pluck(:strokes)))
+  handicap = ( scores.nil? ? "NA" : course.calculate(scores.pluck(:strokes))).to_json
   erb :'user/stats', locals:{user: user, course: course, scores: scores, handicap: handicap}
 end
