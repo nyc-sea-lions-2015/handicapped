@@ -1,0 +1,7 @@
+<div class="del_score">
+  <form id='score_form' action="/score/<%= score.id %>/delete" method='post'>
+    <input type='hidden' name='_method' value = 'delete'>
+    <input type='number' placeholder='score' name='strokes'/><br>
+    <input type='submit' name="Submit">
+  </form>
+</div>

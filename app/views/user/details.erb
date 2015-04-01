@@ -1,0 +1,15 @@
+<div id='user-details'>
+  <% if current_user == user %>
+    <h2> <%= user.username %> </h2>
+    <h3>Courses</h3>
+    <% course.each do |t| %>
+      <a href="/user/<%= user.id %>/course/<%= t.id %>"><%= t.name %></a>
+      <BR>
+    <% end %>
+    <br>
+    <a href='/course/find'>Find Course</a>
+    <a href='/course/new'>Add Course</a>
+  <% else %>
+    Please log in to see your page
+  <% end %>
+</div>

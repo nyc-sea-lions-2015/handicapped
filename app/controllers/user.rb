@@ -16,7 +16,6 @@ end
 puts '/user/:id/edit' do
   curr_user = User.find_by(id: params[:id])
   if curr_user
-    curr_user.username = params[:username]
     curr_user.password = params[:password]
     if curr_user.save!
       redirect "/user/#{user.id}"

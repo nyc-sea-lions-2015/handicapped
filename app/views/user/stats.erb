@@ -1,0 +1,11 @@
+<div class="course_details">
+  <%= course.name %><br>
+  <table>
+  <% scores.each do |score| %>
+    <tr>
+      <td><%= score.strokes %></td>
+    </tr>
+    <% end %>
+  </table>
+  <a href='/course/<%=course.id%>/add'>Add score</a>
+</div>

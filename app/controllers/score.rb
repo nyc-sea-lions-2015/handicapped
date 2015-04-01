@@ -15,3 +15,8 @@ post '/course/:id/add' do
     [500, "Made an error!"]
   end
 end
+
+get '/score/:id/delete' do
+  curr_score = Score.find_by(id: params[:id])
+  erb :'score/delete', locals:{score: curr_score}
+end
