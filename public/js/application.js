@@ -18,7 +18,7 @@ $(document).ready(function() {
     event.preventDefault();
     $target = $(event.target);
 
-    $.ajax({  url: $target.attr('action'),
+    $.ajax({  url: $target.attr('action'), // Nice use of data attribute!!
               method: $target.attr('method'),
               data: $target.serialize(),
               }).done(function(response){

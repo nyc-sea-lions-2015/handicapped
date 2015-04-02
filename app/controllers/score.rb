@@ -4,12 +4,10 @@ get '/course/:id/add' do
 end
 
 post '/course/:id/add' do
-  user = current_user
-  course = Course.find_by(id: params[:id])
-  new_score = Score.new(  strokes: params[:strokes],
-                          course: course,
-                          user: user)
-  new_score.save!
+  # Here's how I would do this:
+  # More concise!
+  course = Course.find(params[:id])
+  new_score = course.scores.create(strokes: params[:strokes], user: current_user)
 
   if request.xhr?
     erb :'score/_eachscore', locals:{score: new_score}, layout: false
@@ -19,7 +17,6 @@ post '/course/:id/add' do
 end
 
 delete '/score/:id' do
-  score = Score.find_by(id: params[:id])
-  Score.find_by(id: params[:id]).destroy
+  Score.find(params[:id]).destroy
   redirect '/'
 end

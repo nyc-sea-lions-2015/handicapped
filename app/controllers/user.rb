@@ -1,11 +1,13 @@
 get '/user/:id' do
   user = User.find_by(id: params[:id])
-  course_id = user.scores.pluck(:course_id).uniq
-  course = []
-  course_id.each do |id|
-    course << Course.find(id)
-  end
-  erb :'user/details', locals: {user: user, course: course}
+  # Now that we have the has_many, through relationship, we can just do:
+  courses = user.courses
+  # course_id = user.scores.pluck(:course_id).uniq
+  # course = []
+  # course_id.each do |id|
+  #   course << Course.find(id)
+  # end
+  erb :'user/details', locals: {user: user, course: courses}
 end
 
 get '/user/:id/edit' do
@@ -13,7 +15,7 @@ get '/user/:id/edit' do
   erb :'user/edit', locals:{user: user}
 end
 
-puts '/user/:id/edit' do
+put '/user/:id/edit' do
   curr_user = User.find_by(id: params[:id])
   if curr_user
     curr_user.password = params[:password]
